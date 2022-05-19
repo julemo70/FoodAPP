@@ -49,7 +49,7 @@ public class LoginFragment extends Fragment {
                    Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
                }
                else{
-
+                    authentification();
                }
            }
        });
@@ -65,7 +65,7 @@ public class LoginFragment extends Fragment {
         Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
-            public void onFailure(Call call, IOException e) {
+            public void onFailure(okhttp3.Call call, IOException e) {
                 String message = "Erreur de connection";
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
@@ -76,7 +76,7 @@ public class LoginFragment extends Fragment {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(okhttp3.Call call, Response response) throws IOException {
                 try {
                     String result = response.body().string();
                     JSONObject jo = new JSONObject(result);
