@@ -7,60 +7,100 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.project39.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link LoginFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+
 public class LoginFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public LoginFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment LoginFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static LoginFragment newInstance(String param1, String param2) {
-        LoginFragment fragment = new LoginFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private EditText txtUsername;
+    private EditText txtPassword;
+    private String username;
+    private String password;
+    private Button btnSignUp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+       View view = inflater.inflate(R.layout.fragment_login, container, false);
+       txtUsername = view.findViewById(R.id.username);
+       txtPassword = view.findViewById(R.id.password);
+       btnSignUp = view.findViewById(R.id.loginbtn);
+       btnSignUp.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               username = txtUsername.getText().toString().trim();
+               password = txtPassword.getText().toString().trim();
+               if(username.isEmpty() || password.isEmpty()){
+                   //si l'utilisateur ne rentre aucune donnee, toast avec message d'erreur apparait
+                   String message = "Champs obligatoires";
+                   Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+               }
+               else{
+
+               }
+           }
+       });
+       return view;
+    }
+
+    private void authentification(){
+        /*
+        decommente la ligne avec url et remplace le par le lien vers ton script php en charge de l'authentification
+         */
+        String url = "http://IPADRESS/android/medicheck/connexion.php?username="+username+"&password="+password;
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder().url(url).build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                String message = "Erreur de connection";
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    String result = response.body().string();
+                    JSONObject jo = new JSONObject(result);
+                    // dans la ligne ci-dessous le name doit correspondre au nom du parametre json renfermant le resultat
+                    String status = jo.getString("status");
+                    if(status.equals("KO")){
+                        String message = "Parametres incorrects";
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                    else{
+                        //ci-dessous mettre la redirection vers la page suivante si authentification reussie
+                        // utilise intent si c'est une activity ou bien getFragmentManager si c'est un autre fragment
+                    }
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }
