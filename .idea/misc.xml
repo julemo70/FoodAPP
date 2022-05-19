@@ -18,6 +18,13 @@
         <entry key="..\:/Users/souleymane kamara/AndroidStudioProjects/project392/app/src/main/res/layout/viewholder_cart.xml" value="0.1" />
         <entry key="..\:/Users/souleymane kamara/AndroidStudioProjects/project392/app/src/main/res/layout/viewholder_category.xml" value="0.33" />
         <entry key="..\:/Users/souleymane kamara/AndroidStudioProjects/project392/app/src/main/res/layout/viewholder_popular.xml" value="0.1287568306010929" />
+        <entry key="app/src/main/res/layout/activity_cart_list.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/activity_intro.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/activity_show_detail.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/viewholder_category.xml" value="0.2921195652173913" />
+        <entry key="app/src/main/res/layout/viewholder_popular.xml" value="0.2921195652173913" />
       </map>
     </option>
   </component>
