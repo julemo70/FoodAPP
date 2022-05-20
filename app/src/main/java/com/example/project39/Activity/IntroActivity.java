@@ -1,11 +1,11 @@
 package com.example.project39.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.project39.R;
 
@@ -20,7 +20,9 @@ private ConstraintLayout startBtn;
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(IntroActivity.this,MainActivity.class));
+               // startActivity(new Intent(IntroActivity.this,MainActivity.class));
+                Intent intent = new Intent(IntroActivity.this,LoginFragment.class);
+                startActivity(intent);
             }
         });
     }

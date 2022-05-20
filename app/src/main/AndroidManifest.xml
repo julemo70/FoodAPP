@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project39">
-        <activity android:name=".Activity.CartListActivity"></activity>
+        <activity
+            android:name=".Activity.LoginActivity"
+            android:exported="false" />
+        <activity android:name=".Activity.CartListActivity" />
         <activity android:name=".Activity.ShowDetailActivity" />
         <activity android:name=".Activity.MainActivity" />
         <activity
