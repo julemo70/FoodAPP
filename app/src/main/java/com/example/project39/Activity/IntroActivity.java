@@ -21,7 +21,7 @@ private ConstraintLayout startBtn;
             @Override
             public void onClick(View view) {
                // startActivity(new Intent(IntroActivity.this,MainActivity.class));
-                Intent intent = new Intent(IntroActivity.this,LoginFragment.class);
+                Intent intent = new Intent(IntroActivity.this,LoginActivity.class);
                 startActivity(intent);
             }
         });
