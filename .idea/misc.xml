@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HP/AndroidStudioProjects/FoodAPP/app/src/main/res/layout/activity_cart_list.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/FoodAPP/app/src/main/res/layout/activity_intro.xml" value="0.12681159420289856" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/FoodAPP/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/FoodAPP/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/FoodAPP/app/src/main/res/layout/activity_map.xml" value="0.12681159420289856" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/FoodAPP/app/src/main/res/layout/activity_show_detail.xml" value="0.12681159420289856" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/FoodAPP/app/src/main/res/layout/fragment_login.xml" value="0.12681159420289856" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/FoodAPP/app/src/main/res/layout/viewholder_cart.xml" value="0.12681159420289856" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/FoodAPP/app/src/main/res/layout/viewholder_category.xml" value="0.12681159420289856" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/FoodAPP/app/src/main/res/layout/viewholder_popular.xml" value="0.12681159420289856" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/FoodAPP/googlemaps/src/main/res/layout/activity_map.xml" value="0.14855072463768115" />
         <entry key="..\:/Users/souleymane kamara/AndroidStudioProjects/project392/app/src/main/res/drawable/cart_background.xml" value="0.1365" />
         <entry key="..\:/Users/souleymane kamara/AndroidStudioProjects/project392/app/src/main/res/drawable/cat_background1.xml" value="0.1365" />
         <entry key="..\:/Users/souleymane kamara/AndroidStudioProjects/project392/app/src/main/res/drawable/cat_background2.xml" value="0.1365" />
